@@ -21,17 +21,37 @@ class App extends React.Component {
     this.setState({ expiryTime });
   }
 
+  setExpiryTime = (expiryTime) => {
+    this.setState({ expiryTime });
+  };
+
+  isValidSession = () => {
+    const currentTime = new Date().getTime();
+    const expiryTime = this.state.expiryTime;
+    const isSessionValid = currentTime < expiryTime;
+
+    return isSessionValid;
+  };
+
   render() {
     return (
       <>
-        <Switch>
-          <Route path={ROUTES.home} exact={true}>
-            <Home />
-          </Route>
-          <Route path={ROUTES.dashboard}>
-            <Dashboard />
-          </Route>
-          <Route
+        <div className="main">
+          <Switch>
+            <Route
+              path={ROUTES.home}
+              exact={true}
+              render={(props) => (
+                <Home isValidSession={this.isValidSession} {...props} />
+              )}
+            />
+            <Route
+              path={ROUTES.dashboard}
+              render={(props) => (
+                <Dashboard isValidSession={this.isValidSession} {...props} />
+              )}
+            />
+            <Route
               path={ROUTES.redirect}
               render={(props) => (
                 <Redirect
@@ -41,8 +61,8 @@ class App extends React.Component {
                 />
               )}
             />
-
-        </Switch>
+          </Switch>
+        </div>
       </>
     );
   }
