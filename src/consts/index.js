@@ -4,8 +4,8 @@ const ROUTES = {
   dashboard: '/dashboard',
 };
 
-const SET_HISTORY = 'SET_HISTORY'; 
-const ADD_HISTORY = 'ADD_HISTORY'; 
+const SET_LastNumbers = 'SET_LastNumbers'; 
+const ADD_LastNumbers = 'ADD_LastNumbers'; 
 
 
-export { ROUTES, SET_HISTORY, ADD_HISTORY };
+export { ROUTES, SET_LastNumbers, ADD_LastNumbers };

@@ -17,6 +17,8 @@ export default class RedirectPage extends React.Component {
       localStorage.setItem('expiry_time', expiryTime);
 
       setExpiryTime(expiryTime);
+
+      
       history.push(ROUTES.dashboard);
     } catch (error) {
       history.push(ROUTES.home);

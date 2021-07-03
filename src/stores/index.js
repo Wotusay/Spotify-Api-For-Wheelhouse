@@ -1,12 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
-import historyReducer from '../reducers/history';
+import lastNumbersReducer from '../reducers/lastNumbers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   combineReducers({
-    history: historyReducer,
+    lastNumbers: lastNumbersReducer,
   }),
   composeEnhancers(applyMiddleware(thunk))
 );

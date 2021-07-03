@@ -1,27 +1,26 @@
-import { ADD_HISTORY, SET_HISTORY } from '../consts/index.js';
+import { SET_LastNumbers, ADD_LastNumbers } from '../consts/index.js';
 import { get } from '../services/api.js';
-
-const setHistory = (history) => ({
-  type: SET_HISTORY,
-  history,
+ 
+const setlastNumbers = (lastNumbers) => ({
+  type: SET_LastNumbers,
+  lastNumbers,
 });
-
-const addHistory = (history) => ({
-  type: ADD_HISTORY,
-  history,
+ 
+const addlastNumbers = (lastNumbers) => ({
+  type: ADD_LastNumbers,
+  lastNumbers,
 });
 
 const initiateGetResult = () => {
   return async (dispatch) => {
     try {
-      const API_URL = `https://api.spotify.com/v1/me/player/recently-played`;
+      const API_URL = `https://api.spotify.com/v1/me/player/recently-played?limit=50`;
       const result = await get(API_URL);
-      console.log(result);
-      return dispatch(setHistory(result));
+      return dispatch(setlastNumbers(result));
     } catch (error) {
       console.log('error', error);
     }
   };
 };
 
-export { setHistory, addHistory, initiateGetResult };
+export { setlastNumbers, addlastNumbers, initiateGetResult };
