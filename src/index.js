@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import store from './stores';
 
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

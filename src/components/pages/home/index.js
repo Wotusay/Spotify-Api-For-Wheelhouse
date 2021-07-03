@@ -21,12 +21,15 @@ const Home = (props) => {
       {isValidSession() ? (
         <Redirect to={ROUTES.dashboard} />
       ) : (
-        <div className="login">
+        <div className=" flex justify-center mt-64">
+        <div className="card">
           <Header />
-          <input
+          <input 
+            className="bg-green-600 rounded-full p-5 pl-8 pr-8 text-3xl transition ease-in duration-400 font-semibold hover:shadow-xl "
             onClick={handleLogin}
             value="Login to Spotify"
             type="submit"></input>
+        </div>
         </div>
       )}
     </React.Fragment>
