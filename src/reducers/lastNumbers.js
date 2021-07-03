@@ -1,11 +1,12 @@
 import { SET_LastNumbers, ADD_LastNumbers } from '../consts/index';
 
+// Reducer for last tracks
+
 const lastNumbersReducer = (state = {}, action) => {
   const { lastNumbers } = action;
   switch (action.type) {
     case SET_LastNumbers:
       return lastNumbers;
-
     case ADD_LastNumbers:
       return {
         ...state,

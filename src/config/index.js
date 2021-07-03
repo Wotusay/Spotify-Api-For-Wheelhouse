@@ -1,3 +1,5 @@
+// Config file for spotify
+
 const config = {
     API_URL: 'https://api.spotify.com/v1',
     SPOTIFY_AUTHORIZE_URL: 'https://accounts.spotify.com/authorize',

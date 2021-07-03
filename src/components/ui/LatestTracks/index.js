@@ -2,13 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const LatestTracks = ({ lastNumbers }) => {
-  console.log(lastNumbers);
+    // List items for the last numbers
   return (
     <>
       <div className="ml-12">
         {Object.keys(lastNumbers).length > 0 ? (
           <>
-            <p className="title-card" > Your last listened songs </p>
+            <p className="title-card" > These are your last listened songs </p>
             <ul className="lastnumbers-card">
               <div>
                 {lastNumbers.items.map((item, index) => {

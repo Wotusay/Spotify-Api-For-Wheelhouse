@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
 const Loader = (props) => {
+  // Loader component for rederict
   const [node] = useState(document.createElement('div'));
   const loader = document.querySelector('#loader');
   useEffect(() => {
