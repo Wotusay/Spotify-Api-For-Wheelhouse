@@ -26,18 +26,20 @@ const TopTracks = ({ topTracks, profile, currentlyPlaying }) => {
         {Object.keys(topTracks).length > 0 ? (
           <>
             <p className="title-card"> Most listened songs </p>
-            <ul
-              onMouseEnter={(e) => setMouseHover(true)}
-              onMouseLeave={(e) => setMouseHover(false)}
-              className="lastnumbers-card">
-              <button
+            <button
                 onClick={(e) => handlePostEvent(e)}
                 style={{ opacity: mouseHover ? 1 : 0 }}
                 className="absolute top-2/3 mt-10 ml-44 z-20 bg-green-600 rounded-full p-5 pl-8 pr-8 text-3xl transition ease-in duration-400 font-semibold hover:shadow-xl">
                 Add all to a playlist
               </button>
 
-              <div              id='outer'>
+            <ul
+              onMouseEnter={(e) => setMouseHover(true)}
+              onMouseLeave={(e) => setMouseHover(false)}
+              id='outer'
+              className="lastnumbers-card">
+
+              <div>
                 {topTracks.items.map((item, index) => {
                   return (
                     <React.Fragment key={index}>
