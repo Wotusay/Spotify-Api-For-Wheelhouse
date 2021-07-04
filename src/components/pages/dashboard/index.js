@@ -50,19 +50,21 @@ const Dashboard = (props) => {
         },
       });
     }
-    
-    OverlayScrollbars(document.querySelectorAll('#outer'), {
-      className: 'os-theme-dark',
-      scrollbars: {
-        autoHide: 'l',
-        autoHideDelay: 800,
-      },
-      nativeScrollbarsOverlaid: {
-        initialize: false,
-      },
-    });
   }, []);
+
+  useEffect(() => {
+    OverlayScrollbars(document.querySelectorAll('#outer'), {
+      className: 'os-theme-light' ,
+      scrollbars: {
+        visibility: 'auto',
+        autoHide: 'leave',
+        autoHideDelay: 800,
+      }
+    });
+  })
   /* eslint-enable */
+
+
 
   // So its easier to get the items
   const {
