@@ -50,7 +50,8 @@ body {
 .lastnumbers-card {
   width: 42rem;
   height: 49rem ;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: #171717;
   border-radius: 10px;
 
@@ -120,3 +121,4 @@ body {
   padding: 2rem;
   margin-top: 3rem;
 }
+
