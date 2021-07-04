@@ -1,18 +1,22 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { initiatePostResult } from '../../../actions/results';
+import CurrentlyPlayingCard from '../CurrentlyPlayingCard';
 
-const TopTracks = ({ topTracks, profile,currentlyPlaying }) => {
+const TopTracks = ({ topTracks, profile, currentlyPlaying }) => {
   // List items for the last numbers
 
-  const [mouseHover, setMouseHover] = useState(false);
+  const [mouseHover, setMouseHover] = useState(false); // We use this to open the button
   const handlePostEvent = (e) => {
+    // After a click event we get all the info we need
     const profileId = profile.id;
     const URI_IDS = { uris: [] };
+    // Spotify needs uris to add tracks so we map them to send all of them in later
     topTracks.items.map((item) => {
       URI_IDS.uris.push(item.uri);
       return null;
     });
+    // Initiating post req
     initiatePostResult(profileId, URI_IDS);
   };
 
@@ -22,7 +26,6 @@ const TopTracks = ({ topTracks, profile,currentlyPlaying }) => {
         {Object.keys(topTracks).length > 0 ? (
           <>
             <p className="title-card"> Most listened songs </p>
-
             <ul
               onMouseEnter={(e) => setMouseHover(true)}
               onMouseLeave={(e) => setMouseHover(false)}
@@ -65,7 +68,7 @@ const TopTracks = ({ topTracks, profile,currentlyPlaying }) => {
                                     {artist.name}
                                     {item.artists[index + 1] === undefined
                                       ? ''
-                                      : ','}{' '}
+                                      : ','}
                                   </p>
                                 ))}
                               </div>
@@ -78,35 +81,7 @@ const TopTracks = ({ topTracks, profile,currentlyPlaying }) => {
                 })}
               </div>
             </ul>
-
-            {Object.keys(currentlyPlaying).length > 0 ? (
-            <div className="timespent">
-              <p className="text-2xl text-gray-400 font-normal">
-                Currently Playing
-              </p>
-              <div className=" flex gap-8 items-center mt-4 ">
-                <img
-                  src={currentlyPlaying.item.album.images[2].url}
-                  alt={currentlyPlaying.item.album.name}
-                  width={currentlyPlaying.item.album.images[2].width}
-                  height={currentlyPlaying.item.album.images[2].height}
-                />
-                <div>
-                  <p className="text-2xl font-semibold">{currentlyPlaying.item.name}</p>
-                  <div className="flex">
-                    {currentlyPlaying.item.artists.map((artist, index) => (
-                      <p
-                        key={artist.name}
-                        className=" text-xl pr-2 text-gray-400 ">
-                        {artist.name}
-                        {currentlyPlaying.item.artists[index + 1] === undefined ? '' : ','}{' '}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            ):null}
+            <CurrentlyPlayingCard currentlyPlaying={currentlyPlaying} />
           </>
         ) : (
           ''

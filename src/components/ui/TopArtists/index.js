@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import FollowerCard from '../FollowerCard';
 
-const TopAlbums = ({ topAlbums,profile }) => {
+const TopAlbums = ({ topAlbums, profile }) => {
   // List items for the Top Albums / Artists
-  console.log(profile);
-
+  
   return (
     <>
       <div className="ml-12">
@@ -54,13 +54,7 @@ const TopAlbums = ({ topAlbums,profile }) => {
                 })}
               </div>
             </ul>
-
-            <div className="timespent" >
-              <p className="text-2xl text-gray-400 font-normal pb-2">Total Followers</p>
-              <p className="text-5xl mt-2 font-semibold">
-                  {profile.followers.total}
-              </p>
-            </div>
+            <FollowerCard profile={profile} />
           </>
         ) : (
           ''

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import config from '../../../config';
 import { ROUTES } from '../../../consts';
-import Header from '../../ui/header';
+import Header from '../../ui/Header';
 
 const Home = (props) => {
   // Getting all the static props out of the config file

@@ -1,6 +1,6 @@
 import { GET_CurrentlyPlaying } from '../consts/index';
 
-// Reducer for top tracks
+// Reducer for current track
 
 const currentlyPlayingReducer = (state = {}, action) => {
   const { currentlyPlaying } = action;
