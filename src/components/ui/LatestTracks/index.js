@@ -10,12 +10,12 @@ const LatestTracks = ({ lastNumbers }) => {
         {Object.keys(lastNumbers).length > 0 ? (
           <>
             <p className="title-card">Last listened songs </p>
-            <ul className="lastnumbers-card">
+            <ul id='outer' className="lastnumbers-card">
               <div>
                 {lastNumbers.items.map((item, index) => {
                   return (
                     <React.Fragment key={index}>
-                      <li className="bg-transparent cursor-pointer hover:bg-gray-800 p-0.5">
+                      <li  className="bg-transparent cursor-pointer hover:bg-gray-800 p-0.5">
                         <a
                           target="_blank"
                           href={item.track.external_urls.spotify}

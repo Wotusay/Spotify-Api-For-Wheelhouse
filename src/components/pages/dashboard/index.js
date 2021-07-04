@@ -7,6 +7,8 @@ import TopTracks from '../../ui/TopTracks';
 import LoadingCirkle from '../../ui/LoadingCirckle';
 import ProfileHeader from '../../ui/ProfileHeader';
 import TopArtists from '../../ui/TopArtists';
+import OverlayScrollbars from 'overlayscrollbars';
+
 
 const Dashboard = (props) => {
   const { isValidSession, history } = props;
@@ -48,6 +50,17 @@ const Dashboard = (props) => {
         },
       });
     }
+    
+    OverlayScrollbars(document.querySelectorAll('#outer'), {
+      className: 'os-theme-dark',
+      scrollbars: {
+        autoHide: 'l',
+        autoHideDelay: 800,
+      },
+      nativeScrollbarsOverlaid: {
+        initialize: false,
+      },
+    });
   }, []);
   /* eslint-enable */
 

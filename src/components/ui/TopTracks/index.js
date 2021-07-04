@@ -29,6 +29,7 @@ const TopTracks = ({ topTracks, profile, currentlyPlaying }) => {
             <ul
               onMouseEnter={(e) => setMouseHover(true)}
               onMouseLeave={(e) => setMouseHover(false)}
+              id='outer'
               className="lastnumbers-card">
               <button
                 onClick={(e) => handlePostEvent(e)}

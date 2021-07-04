@@ -4,14 +4,14 @@ import FollowerCard from '../FollowerCard';
 
 const TopAlbums = ({ topAlbums, profile }) => {
   // List items for the Top Albums / Artists
-  
+
   return (
     <>
       <div className="ml-12">
         {Object.keys(topAlbums).length > 0 ? (
           <>
             <p className="title-card">Most listened artists </p>
-            <ul className="lastnumbers-card">
+            <ul id="outer" className="lastnumbers-card">
               <div>
                 {topAlbums.items.map((item, index) => {
                   return (
