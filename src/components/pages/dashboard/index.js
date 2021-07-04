@@ -6,6 +6,7 @@ import LatestTracks from '../../ui/LatestTracks';
 import TopTracks from '../../ui/TopTracks';
 import LoadingCirkle from '../../ui/LoadingCirckle';
 import ProfileHeader from '../../ui/ProfileHeader';
+import TopArtists from '../../ui/TopArtists';
 
 const Dashboard = (props) => {
   const { isValidSession, history } = props;
@@ -60,14 +61,15 @@ const Dashboard = (props) => {
       Object.keys(profile).length > 0 ? (
         <>
         <div className="topbar"> </div>
-          <p className="font-bold text-7xl mt-20 ml ml-11 mb-20">
+          <p className="font-bold text-7xl mt-20 ml ml-36 mb-20">
             {greet}
           </p>
 
           <ProfileHeader profile={profile} />
-          <div className="flex"> 
+          <div className="flex justify-evenly mr-20"> 
           <LatestTracks lastNumbers={lastNumbers} />
-          <TopTracks topTracks={topTracks} />
+          <TopTracks topTracks={topTracks} profile={profile} />
+          <TopArtists topAlbums={topAlbums} profile={profile} />
           </div>
         </>
       ) : (

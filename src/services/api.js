@@ -43,7 +43,6 @@ export const get = async (url, params) => {
 // POST function for axios
 export const post = async (url, params) => {
   setAuthHeader();
-  console.log(axios.defaults.headers.common)
   const result = await axios.post(url, params);
   return result.data;
 };

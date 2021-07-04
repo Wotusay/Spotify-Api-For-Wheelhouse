@@ -101,6 +101,10 @@ body {
   top: 5.7rem;
 }
 
+.profile_header:hover {
+  background: #1b1b1b;
+}
+
 .topbar {
   width: 100vw;
   height: 40rem;
@@ -108,4 +112,11 @@ body {
   position:absolute ;
   top: 0;
   z-index: -1;
+}
+
+.timespent {
+  background: #171717;
+  border-radius: 10px;
+  padding: 2rem;
+  margin-top: 3rem;
 }

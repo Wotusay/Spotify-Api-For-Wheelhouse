@@ -14,6 +14,7 @@ const SET_TopTracks = 'SET_TOPTRACKS';
 const ADD_TopTracks = 'ADD_TOPTRACKS';
 const SET_TopAlbums = 'SET_TOPALBUMS';
 const ADD_TopAlbums = 'ADD_TOPALBUMS';
+const GET_CurrentlyPlaying = 'GET_CURRENTLYPlAYING';
 
 export {
   ROUTES,
@@ -25,4 +26,5 @@ export {
   ADD_TopTracks,
   SET_TopAlbums,
   ADD_TopAlbums,
+  GET_CurrentlyPlaying,
 };

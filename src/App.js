@@ -19,7 +19,7 @@ class App extends React.Component {
     } catch (error) {
       expiryTime = '0';
     }
-    // We overwrite then the initial expirytime 
+    // We overwrite then the initial expirytime
     this.setState({ expiryTime });
   }
 
@@ -44,13 +44,6 @@ class App extends React.Component {
         <div className="main">
           <Switch>
             <Route
-              path={ROUTES.home}
-              exact={true}
-              render={(props) => (
-                <Home isValidSession={this.isValidSession} {...props} />
-              )}
-            />
-            <Route
               path={ROUTES.dashboard}
               render={(props) => (
                 <Dashboard isValidSession={this.isValidSession} {...props} />
@@ -64,6 +57,12 @@ class App extends React.Component {
                   setExpiryTime={this.setExpiryTime}
                   {...props}
                 />
+              )}
+            />
+            <Route
+              path={ROUTES.home}
+              render={(props) => (
+                <Home isValidSession={this.isValidSession} {...props} />
               )}
             />
           </Switch>

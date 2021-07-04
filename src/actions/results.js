@@ -8,7 +8,7 @@ import {
   SET_TopAlbums,
   ADD_TopAlbums,
 } from '../consts/index.js';
-import { get } from '../services/api.js';
+import { get, post } from '../services/api.js';
 
 const setLastNumbers = (lastNumbers) => ({
   type: SET_LastNumbers,
@@ -76,10 +76,31 @@ const initiateGetResult = () => {
   };
 };
 
+const initiatePostResult = async (userId,ids) => {
+    try {
+      const API_URL_PLAYLIST = `https://api.spotify.com/v1/users/${userId}/playlists`
+      const title = {name: 'Top Tracks of All Time'};   
+      await post(API_URL_PLAYLIST, title).then( async (r) => {
+        const playlistId = r.id;
+        const API_URL_PLAYLISTTRACKS= `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+        await post(API_URL_PLAYLISTTRACKS,ids).then( async (play) => {
+          window.open(r.external_urls.spotify)
+        });
+      });
+    }
+     catch(error) {
+       console.log('error', error)
+     }
+
+}
+
+
+
 export {
   setLastNumbers,
   addLastNumbers,
   initiateGetResult,
+  initiatePostResult,
   setProfile,
   addProfile,
   addTopAlbums,
