@@ -4,7 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -20,7 +19,6 @@ html {
 }
 /* stylelint-enable */
 
-
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -33,7 +31,6 @@ body {
   background-repeat: no-repeat;
   color: #FFFFFF;
 }
-
 
 .card {
   background: linear-gradient(125.79deg, #422CEA 2.32%, #B8B9EB 100%); 
@@ -52,16 +49,63 @@ body {
 
 .lastnumbers-card {
   width: 42rem;
-  height: 40rem ;
+  height: 49rem ;
   overflow: auto;
-  background: #282828;
-  border-radius: 5px;
+  background: #171717;
+  border-radius: 10px;
 
 }
 
 .title-card {
   width: 42rem;
-  padding: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
   font-size: 2.4rem;
   font-weight: 600;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+.loading::after {
+  content: "";
+  width: 3.5rem;
+  height: 3.5rem;
+  border: 0.5rem solid #2D2A39;
+  border-top-color: #57B560;
+  border-radius: 50%;
+  animation: loading 1s ease-in-out infinite;
+}
+
+@keyframes loading {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.profile_header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background: #010002;
+  border-radius: 10rem;
+  width: 22rem;
+  padding-left: 0.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  position: absolute;
+  right: 10rem;
+  top: 5.7rem;
+}
+
+.topbar {
+  width: 100vw;
+  height: 40rem;
+  background: linear-gradient(180deg, #13094e 0%, rgba(25, 19, 64, 0) 100%);
+  position:absolute ;
+  top: 0;
+  z-index: -1;
 }

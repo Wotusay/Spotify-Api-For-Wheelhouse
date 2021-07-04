@@ -1,23 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const LatestTracks = ({ lastNumbers }) => {
-  // List items for the last numbers
+const TopTracks = ({ topTracks }) => {
+    // List items for the last numbers
   return (
     <>
       <div className="ml-12">
-        {Object.keys(lastNumbers).length > 0 ? (
+        {Object.keys(topTracks).length > 0 ? (
           <>
-            <p className="title-card">Last listened songs </p>
+            <p className="title-card" > Most listened songs </p>
             <ul className="lastnumbers-card">
               <div>
-                {lastNumbers.items.map((item, index) => {
+                {topTracks.items.map((item, index) => {
                   return (
                     <React.Fragment key={index}>
                       <li>
                         <a
                           target="_blank"
-                          href={item.track.external_urls.spotify}
+                          href={item.external_urls.spotify}
                           rel="noopener noreferrer"
                           className="card-image-link">
                           <div className="items ">
@@ -25,22 +25,22 @@ const LatestTracks = ({ lastNumbers }) => {
                               {index + 1}
                             </p>
                             <img
-                              src={item.track.album.images[2].url}
-                              alt={item.track.album.name}
-                              width={item.track.album.images[2].width}
-                              height={item.track.album.images[2].height}
+                              src={item.album.images[2].url}
+                              alt={item.album.name}
+                              width={item.album.images[2].width}
+                              height={item.album.images[2].height}
                             />
                             <div className="pl-8">
                               <p className=" text-2xl font-semibold pb-2 ">
-                                {item.track.name}
+                                {item.name}
                               </p>
                               <div className="flex">
-                                {item.track.artists.map((artist, index) => (
-                                  <p key={artist.name} className=" text-xl pr-2  text-gray-400">
+                                {item.artists.map((artist, index) => (
+                                  <p key={artist.name} className=" text-xl pr-2 text-gray-400 ">
                                     {artist.name}
-                                    {item.track.artists[index + 1] === undefined
+                                    {item.artists[index + 1] === undefined
                                       ? ''
-                                      : ','}
+                                      : ','}{' '}
                                   </p>
                                 ))}
                               </div>
@@ -61,4 +61,4 @@ const LatestTracks = ({ lastNumbers }) => {
     </>
   );
 };
-export default connect()(LatestTracks);
+export default connect()(TopTracks);

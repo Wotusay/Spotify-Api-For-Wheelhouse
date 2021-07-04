@@ -57,10 +57,10 @@ const initiateGetResult = () => {
       const API_URL_LASTNUMBERS = `https://api.spotify.com/v1/me/player/recently-played?limit=50`;
       const resultLastNumbers = await get(API_URL_LASTNUMBERS);
 
-      const API_URL_TOPTRACKS = `https://api.spotify.com/v1/me/top/tracks?limit=25`;
+      const API_URL_TOPTRACKS = `https://api.spotify.com/v1/me/top/tracks?limit=25&time_range=long_term`;
       const resultTopTracks = await get(API_URL_TOPTRACKS);
 
-      const API_URL_TOPALBUMS = `https://api.spotify.com/v1/me/top/artists?limit=25`;
+      const API_URL_TOPALBUMS = `https://api.spotify.com/v1/me/top/artists?limit=25&time_range=long_term`;
       const resultTopAlbums = await get(API_URL_TOPALBUMS);
 
       const API_URL = `https://api.spotify.com/v1/me`;
