@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { ROUTES } from './consts';
-import Home from './components/pages/Home';
-import Dashboard from './components/pages/Dashboard';
-import Redirect from './components/pages/Redirect';
+import Home from './components/pages/home';
+import Dashboard from './components/pages/dashboard';
+import Redirect from './components/pages/redirect';
 
 class App extends React.Component {
   // initial expirytime
