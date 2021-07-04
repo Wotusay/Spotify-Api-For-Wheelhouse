@@ -52,7 +52,13 @@ const Dashboard = (props) => {
   /* eslint-enable */
 
   // So its easier to get the items
-  const { lastNumbers, topAlbums, topTracks, profile } = props;
+  const {
+    lastNumbers,
+    topAlbums,
+    topTracks,
+    profile,
+    currentlyPlaying,
+  } = props;
   return (
     <div>
       {Object.keys(lastNumbers).length > 0 ||
@@ -60,16 +66,18 @@ const Dashboard = (props) => {
       Object.keys(topTracks).length > 0 ||
       Object.keys(profile).length > 0 ? (
         <>
-        <div className="topbar"> </div>
-          <p className="font-bold text-7xl mt-20 ml ml-36 mb-20">
-            {greet}
-          </p>
+          <div className="topbar"> </div>
+          <p className="font-bold text-7xl mt-20 ml ml-36 mb-20">{greet}</p>
 
           <ProfileHeader profile={profile} />
-          <div className="flex justify-evenly mr-20"> 
-          <LatestTracks lastNumbers={lastNumbers} />
-          <TopTracks topTracks={topTracks} profile={profile} />
-          <TopArtists topAlbums={topAlbums} profile={profile} />
+          <div className="flex justify-evenly mr-20">
+            <LatestTracks lastNumbers={lastNumbers} />
+            <TopTracks
+              topTracks={topTracks}
+              profile={profile}
+              currentlyPlaying={currentlyPlaying}
+            />
+            <TopArtists topAlbums={topAlbums} profile={profile} />
           </div>
         </>
       ) : (
@@ -86,6 +94,7 @@ const mapStateToProps = (state) => {
     topTracks: state.topTracks,
     topAlbums: state.topAlbums,
     profile: state.profile,
+    currentlyPlaying: state.currentlyPlaying,
   };
 };
 

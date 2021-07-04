@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { initiatePostResult } from '../../../actions/results';
 
-const TopTracks = ({ topTracks, profile }) => {
+const TopTracks = ({ topTracks, profile,currentlyPlaying }) => {
   // List items for the last numbers
 
   const [mouseHover, setMouseHover] = useState(false);
@@ -10,8 +10,8 @@ const TopTracks = ({ topTracks, profile }) => {
     const profileId = profile.id;
     const URI_IDS = { uris: [] };
     topTracks.items.map((item) => {
-       URI_IDS.uris.push(item.uri);
-       return null;
+      URI_IDS.uris.push(item.uri);
+      return null;
     });
     initiatePostResult(profileId, URI_IDS);
   };
@@ -29,7 +29,7 @@ const TopTracks = ({ topTracks, profile }) => {
               className="lastnumbers-card">
               <button
                 onClick={(e) => handlePostEvent(e)}
-                style={{opacity: mouseHover ? 1 : 0 }}
+                style={{ opacity: mouseHover ? 1 : 0 }}
                 className="absolute top-2/3 mt-10 ml-44 bg-green-600 rounded-full p-5 pl-8 pr-8 text-3xl transition ease-in duration-400 font-semibold hover:shadow-xl">
                 Add all to a playlist
               </button>
@@ -78,12 +78,35 @@ const TopTracks = ({ topTracks, profile }) => {
                 })}
               </div>
             </ul>
-            <div className="timespent" >
-              <p className="text-2xl text-gray-400 font-normal pb-2">Currently Playing</p>
-              <p className="text-5xl mt-2 font-semibold">
-                  
+
+            {Object.keys(currentlyPlaying).length > 0 ? (
+            <div className="timespent">
+              <p className="text-2xl text-gray-400 font-normal">
+                Currently Playing
               </p>
+              <div className=" flex gap-8 items-center mt-4 ">
+                <img
+                  src={currentlyPlaying.item.album.images[2].url}
+                  alt={currentlyPlaying.item.album.name}
+                  width={currentlyPlaying.item.album.images[2].width}
+                  height={currentlyPlaying.item.album.images[2].height}
+                />
+                <div>
+                  <p className="text-2xl font-semibold">{currentlyPlaying.item.name}</p>
+                  <div className="flex">
+                    {currentlyPlaying.item.artists.map((artist, index) => (
+                      <p
+                        key={artist.name}
+                        className=" text-xl pr-2 text-gray-400 ">
+                        {artist.name}
+                        {currentlyPlaying.item.artists[index + 1] === undefined ? '' : ','}{' '}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
+            ):null}
           </>
         ) : (
           ''

@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import currentlyPlayingReducer from '../reducers/currentlyPlayingReducer';
 import lastNumbersReducer from '../reducers/lastNumbers';
 import profileReducer from '../reducers/profileReducer';
 import topAlbumsReducer from '../reducers/topAlbumsReducer';
@@ -14,7 +15,8 @@ const store = createStore(
     lastNumbers: lastNumbersReducer,
     topTracks: topTracksReducer,
     topAlbums: topAlbumsReducer,
-    profile: profileReducer
+    profile: profileReducer,
+    currentlyPlaying: currentlyPlayingReducer
   }),
   // Composer
   composeEnhancers(applyMiddleware(thunk))

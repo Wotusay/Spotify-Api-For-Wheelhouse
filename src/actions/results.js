@@ -7,6 +7,7 @@ import {
   ADD_Profile,
   SET_TopAlbums,
   ADD_TopAlbums,
+  GET_CurrentlyPlaying,
 } from '../consts/index.js';
 import { get, post } from '../services/api.js';
 
@@ -50,6 +51,11 @@ const addProfile = (profile) => ({
   profile,
 });
 
+const getCurrentlyPlaying = (currentlyPlaying) => ({
+  type: GET_CurrentlyPlaying,
+  currentlyPlaying,
+});
+
 // Initiate Get Result for all the api items needed
 const initiateGetResult = () => {
   return async (dispatch) => {
@@ -66,6 +72,15 @@ const initiateGetResult = () => {
       const API_URL = `https://api.spotify.com/v1/me`;
       const result = await get(API_URL);
 
+      const API_URL_CURRTRACK = `https://api.spotify.com/v1/me/player/currently-playing`;
+      const resultCurrPlaying = await get(API_URL_CURRTRACK);
+      dispatch(getCurrentlyPlaying(resultCurrPlaying));
+
+      setInterval( async () => {
+        const resultCurrPlaying = await get(API_URL_CURRTRACK);
+        dispatch(getCurrentlyPlaying(resultCurrPlaying));
+      }, 3000);
+
       dispatch(setProfile(result));
       dispatch(setTopAlbums(resultTopAlbums));
       dispatch(setTopTracks(resultTopTracks));
@@ -76,25 +91,21 @@ const initiateGetResult = () => {
   };
 };
 
-const initiatePostResult = async (userId,ids) => {
-    try {
-      const API_URL_PLAYLIST = `https://api.spotify.com/v1/users/${userId}/playlists`
-      const title = {name: 'Top Tracks of All Time'};   
-      await post(API_URL_PLAYLIST, title).then( async (r) => {
-        const playlistId = r.id;
-        const API_URL_PLAYLISTTRACKS= `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
-        await post(API_URL_PLAYLISTTRACKS,ids).then( async (play) => {
-          window.open(r.external_urls.spotify)
-        });
+const initiatePostResult = async (userId, ids) => {
+  try {
+    const API_URL_PLAYLIST = `https://api.spotify.com/v1/users/${userId}/playlists`;
+    const title = { name: 'Top Tracks of All Time' };
+    await post(API_URL_PLAYLIST, title).then(async (r) => {
+      const playlistId = r.id;
+      const API_URL_PLAYLISTTRACKS = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+      await post(API_URL_PLAYLISTTRACKS, ids).then(async (play) => {
+        window.open(r.external_urls.spotify);
       });
-    }
-     catch(error) {
-       console.log('error', error)
-     }
-
-}
-
-
+    });
+  } catch (error) {
+    console.log('error', error);
+  }
+};
 
 export {
   setLastNumbers,
