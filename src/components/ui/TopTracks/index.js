@@ -27,18 +27,18 @@ const TopTracks = ({ topTracks, profile, currentlyPlaying }) => {
           <>
             <p className="title-card"> Most listened songs </p>
             <button
-                onClick={(e) => handlePostEvent(e)}
-                style={{ opacity: mouseHover ? 1 : 0 }}
-                className="absolute top-2/3 mt-10 ml-44 z-20 bg-green-600 rounded-full p-5 pl-8 pr-8 text-3xl transition ease-in duration-400 font-semibold hover:shadow-xl">
-                Add all to a playlist
-              </button>
+              onClick={(e) => handlePostEvent(e)}
+              onMouseEnter={(e) => setMouseHover(true)}
+              style={{ opacity: mouseHover ? 1 : 0 }}
+              className="absolute top-2/3 mt-10 ml-44 z-20 bg-green-600 rounded-full p-5 pl-8 pr-8 text-3xl transition ease-in duration-400 font-semibold hover:shadow-xl">
+              Add all to a playlist
+            </button>
 
             <ul
               onMouseEnter={(e) => setMouseHover(true)}
               onMouseLeave={(e) => setMouseHover(false)}
-              id='outer'
+              id="outer"
               className="lastnumbers-card">
-
               <div>
                 {topTracks.items.map((item, index) => {
                   return (
