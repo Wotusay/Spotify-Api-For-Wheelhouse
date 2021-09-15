@@ -1,4 +1,4 @@
-@import './css/reset.css';
+@import "./css/reset.css";
 
 @tailwind base;
 @tailwind components;
@@ -21,19 +21,19 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #121212;
   overflow: hidden;
   background-repeat: no-repeat;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .card {
-  background: linear-gradient(125.79deg, #422CEA 2.32%, #B8B9EB 100%); 
+  background: linear-gradient(125.79deg, #422cea 2.32%, #b8b9eb 100%);
   padding: 3rem;
   width: 50rem;
   border-radius: 5px;
@@ -45,16 +45,15 @@ body {
   margin-top: 3rem;
   margin-bottom: 3rem;
   align-items: center;
-} 
+}
 
 .lastnumbers-card {
   width: 42rem;
-  height: 49rem ;
+  height: 49rem;
   overflow-y: auto;
   overflow-x: hidden;
   background: #171717;
   border-radius: 10px;
-
 }
 
 .title-card {
@@ -66,17 +65,17 @@ body {
 }
 
 .loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .loading::after {
   content: "";
   width: 3.5rem;
   height: 3.5rem;
-  border: 0.5rem solid #2D2A39;
-  border-top-color: #57B560;
+  border: 0.5rem solid #2d2a39;
+  border-top-color: #57b560;
   border-radius: 50%;
   animation: loading 1s ease-in-out infinite;
 }
@@ -102,6 +101,12 @@ body {
   top: 5.7rem;
 }
 
+.profile_header svg {
+  padding: 3px;
+  width: 35px;
+  height: 35px;
+}
+
 .profile_header:hover {
   background: #1b1b1b;
 }
@@ -110,7 +115,7 @@ body {
   width: 100vw;
   height: 40rem;
   background: linear-gradient(180deg, #13094e 0%, rgba(25, 19, 64, 0) 100%);
-  position:absolute ;
+  position: absolute;
   top: 0;
   z-index: -1;
 }
@@ -121,4 +126,3 @@ body {
   padding: 2rem;
   margin-top: 3rem;
 }
-
